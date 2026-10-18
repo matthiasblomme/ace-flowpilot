@@ -102,7 +102,7 @@ Use `CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON'` followed by `CREATE FIELD Out
 ```esql
 SET OutputRoot.Properties = InputRoot.Properties;
 CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
-CREATE FIELD OutputRoot.JSON.Data;
+CREATE FIELD OutputRoot.JSON.Data IDENTITY (JSON.Object)Data;
 ```
 
 ### Step 3 — Declare JSON arrays explicitly before populating them
@@ -110,7 +110,7 @@ CREATE FIELD OutputRoot.JSON.Data;
 Every repeating element **must** be declared as a typed JSON array using `CREATE FIELD ... IDENTITY (JSON.Array)` before any elements are added to it. Do not rely on indexed `SET` alone to create arrays.
 
 ```esql
-CREATE FIELD OutputRoot.JSON.Data.SaleList TYPE JSON.Object;
+CREATE FIELD OutputRoot.JSON.Data.SaleList IDENTITY (JSON.Object)SaleList;
 CREATE FIELD OutputRoot.JSON.Data.SaleList.Invoice IDENTITY (JSON.Array)Invoice;
 ```
 
@@ -118,13 +118,13 @@ CREATE FIELD OutputRoot.JSON.Data.SaleList.Invoice IDENTITY (JSON.Array)Invoice;
 
 Use `DECLARE ... REFERENCE TO element[1]` + `WHILE LASTMOVE(...) DO` + `MOVE ... NEXTSIBLING NAME '...'` to iterate repeating elements. **Do not use `FOR srcX AS path[] DO` loops** — that form does not correctly traverse sibling nodes in the XMLNSC domain.
 
-For each object in an array, create it explicitly with `CREATE LASTCHILD ... TYPE JSON.Object` before assigning its fields.
+For each object in an array, create it explicitly with `CREATE LASTCHILD ... IDENTITY (JSON.Object)Item` before assigning its fields.
 
 ```esql
 DECLARE invoiceRef REFERENCE TO InputRoot.XMLNSC.SaleEnvelope.SaleList.Invoice[1];
 DECLARE invoiceIndex INTEGER 1;
 WHILE LASTMOVE(invoiceRef) DO
-    CREATE LASTCHILD OF OutputRoot.JSON.Data.SaleList.Invoice TYPE JSON.Object;
+    CREATE LASTCHILD OF OutputRoot.JSON.Data.SaleList.Invoice IDENTITY (JSON.Object)Item;
 
     -- Read scalars with FIELDVALUE()
     SET OutputRoot.JSON.Data.SaleList.Invoice.Item[invoiceIndex].Surname = FIELDVALUE(invoiceRef.Surname);
