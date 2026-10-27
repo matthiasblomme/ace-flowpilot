@@ -37,7 +37,7 @@ encoding/<project>=UTF-8
 ### ESQL correctness
 - No direct cross-domain tree assignment (`SET OutputRoot.JSON.Data = InputRoot.XMLNSC.*`) — this produces duplicate keys for repeated elements.
 - A repeatability table was built for every element at every nesting depth before writing code. Every element that can repeat is mapped to a `JSON.Array`, not a scalar.
-- Every repeating element is iterated with `DECLARE ... REFERENCE TO [1]` + `WHILE LASTMOVE` + `MOVE ... NEXTSIBLING NAME`, not `FOR ... AS ...[] DO`.
+- Every repeating element is iterated with `DECLARE ... REFERENCE TO [1]` + `WHILE LASTMOVE` + `MOVE ... NEXTSIBLING NAME`, with a `NAMESPACE` clause when the element is namespace-qualified. An existing `FOR ... AS ...[] DO` loop is valid and is not a defect.
 - Every JSON array is declared with `CREATE FIELD ... IDENTITY (JSON.Array)` before being populated.
 - Every JSON array object is created with `CREATE LASTCHILD ... TYPE JSON.Object` before its fields are assigned.
 - Every scalar read from the XMLNSC tree uses `FIELDVALUE()`.
