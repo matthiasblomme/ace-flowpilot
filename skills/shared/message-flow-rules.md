@@ -52,23 +52,23 @@ For example:
 ## Validation
 Before returning generated `.msgflow` content:
 - confirm the node types are valid
-- you MUST read the example message flow in an application project [`./ExampleApplication/Example.msgflow`]
+- you MUST read the example message flow in an application project [`./ExampleApplication/Example.msgflow`](ExampleApplication/Example.msgflow)
 - confirm connector-specific rules were applied where relevant
 - confirm any required supporting artifacts were also created or identified
 - apply the common checks in [`skills/shared/review-checklist.md`](review-checklist.md)
 
 ## Examples 
-- When creating `.msgflow` content in an Application project note the example [`skills/shared/ExampleApplication/Example.msgflow`](Example.msgflow)
-- When creating `.msgflow` content in a REST API project note the example [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`](ExampleAPI.msgflow)
-- When creating `.subflow` content in a REST API project note the example [`skills/shared/ExampleAPI/createWidget.subflow`](createWidget.subflow), [`skills/shared/ExampleAPI/retrieveWidget.subflow`](retrieveWidget.subflow), [`skills/shared/ExampleAPI/updateWidget.subflow`](updateWidget.subflow), [`skills/shared/ExampleAPI/deleteWidget.subflow`](deleteWidget.subflow)
+- When creating `.msgflow` content in an Application project note the example [`skills/shared/ExampleApplication/Example.msgflow`](ExampleApplication/Example.msgflow)
+- When creating `.msgflow` content in a REST API project note the example [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`](ExampleAPI/gen/ExampleAPI.msgflow)
+- When creating `.subflow` content in a REST API project note the example [`skills/shared/ExampleAPI/createWidget.subflow`](ExampleAPI/createWidget.subflow), [`skills/shared/ExampleAPI/retrieveWidget.subflow`](ExampleAPI/retrieveWidget.subflow), [`skills/shared/ExampleAPI/updateWidget.subflow`](ExampleAPI/updateWidget.subflow), [`skills/shared/ExampleAPI/deleteWidget.subflow`](ExampleAPI/deleteWidget.subflow)
 
 ## Related files
 - [`skills/shared/ace-versions.md`](ace-versions.md)
 - [`skills/shared/node-types.md`](node-types.md)
 - [`skills/shared/review-checklist.md`](review-checklist.md)
-- [`skills/shared/ExampleApplication/Example.msgflow`]
-- [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`]
-- [`skills/shared/ExampleAPI/createWidget.subflow`]
-- [`skills/shared/ExampleAPI/retrieveWidget.subflow`]
-- [`skills/shared/ExampleAPI/updateWidget.subflow`]
-- [`skills/shared/ExampleAPI/deleteWidget.subflow`]
+- [`skills/shared/ExampleApplication/Example.msgflow`](ExampleApplication/Example.msgflow)
+- [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`](ExampleAPI/gen/ExampleAPI.msgflow)
+- [`skills/shared/ExampleAPI/createWidget.subflow`](ExampleAPI/createWidget.subflow)
+- [`skills/shared/ExampleAPI/retrieveWidget.subflow`](ExampleAPI/retrieveWidget.subflow)
+- [`skills/shared/ExampleAPI/updateWidget.subflow`](ExampleAPI/updateWidget.subflow)
+- [`skills/shared/ExampleAPI/deleteWidget.subflow`](ExampleAPI/deleteWidget.subflow)

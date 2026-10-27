@@ -20,6 +20,7 @@ When a new Application project is created, **all four of the following files mus
 eclipse.preferences.version=1
 encoding/<project>=UTF-8
 ```
+- `application.descriptor` in the project root, as specified in [`skills/shared/ace-projects.md`](ace-projects.md).
 - The `.msgflow` file(s) requested by the user.
 
 ### Project metadata — Policy projects

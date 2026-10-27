@@ -348,7 +348,7 @@ encoding/<project>=UTF-8
 
 ## Example REST API project 
 - When creating a REST API project note the example [`skills/shared/ExampleAPI`](ExampleAPI)
-- When creating `.msgflow` content in a REST API project note the example [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`](ExampleAPI.msgflow)
+- When creating `.msgflow` content in a REST API project note the example [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`](ExampleAPI/gen/ExampleAPI.msgflow)
 
 ## When to Create a Shared Library or a Static Library Project
 - If the user asks to create a project for sharing resources across many applications then create either a new Shared Library project or a new Static Library project.
