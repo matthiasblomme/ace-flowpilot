@@ -40,7 +40,7 @@ Use this skill when the user asks to create or modify `.esql` files for ACE Comp
 - Do not describe ACE ESQL fixes as replacing "SQL-like syntax" when the original syntax is valid ACE ESQL.
 - For XMLNSC-to-JSON transformations, follow [`skills/shared/esql-guidelines.md`](../shared/esql-guidelines.md) exactly.
 - For XMLNSC repeating elements, map every repeating element to a JSON array; do not flatten repeated values into concatenated strings.
-- For XMLNSC-to-JSON array traversal, use `DECLARE ... REFERENCE TO ...[1]` with `WHILE LASTMOVE(...)` and `MOVE ... NEXTSIBLING NAME '...'`; do not use `FOR ... AS path[] DO`.
+- For XMLNSC-to-JSON array traversal, use `DECLARE ... REFERENCE TO ...[1]` with `WHILE LASTMOVE(...)` and `MOVE ... NEXTSIBLING NAME '...'` rather than `FOR ... AS path[] DO`. `FOR` is valid ESQL and traverses XMLNSC repeating elements correctly, so do not flag or rewrite an existing `FOR` loop.
 - Before populating any JSON array, create it explicitly with `CREATE FIELD ... IDENTITY (JSON.Array)`.
 - Always use `FIELDVALUE(...)` when reading any scalar leaf value from **any** message domain tree (XMLNSC, JSON, MRM) — this includes reading `CHARACTER` variables from a JSON input body (`InputRoot.JSON.Data`), not only XMLNSC-to-JSON transformations.
 - When iterating a JSON input array (e.g. `InputRoot.JSON.Data.lineItems`), the array elements are stored as siblings named `item` (lowercase) by the ACE HTTPInput/JSON parser. The reference must start at `.item[1]` and advance with `MOVE ref NEXTSIBLING NAME 'item'`. Using `MOVE ref NEXTSIBLING` without `NAME` advances past the array boundary.

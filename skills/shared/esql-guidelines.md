@@ -116,7 +116,7 @@ CREATE FIELD OutputRoot.JSON.Data.SaleList.Invoice IDENTITY (JSON.Array)Invoice;
 
 ### Step 4 — Iterate with REFERENCE + WHILE LASTMOVE, not FOR loops
 
-Use `DECLARE ... REFERENCE TO element[1]` + `WHILE LASTMOVE(...) DO` + `MOVE ... NEXTSIBLING NAME '...'` to iterate repeating elements. **Do not use `FOR srcX AS path[] DO` loops** — that form does not correctly traverse sibling nodes in the XMLNSC domain.
+Use `DECLARE ... REFERENCE TO element[1]` + `WHILE LASTMOVE(...) DO` + `MOVE ... NEXTSIBLING NAME '...'` to iterate repeating elements. Generate this form rather than `FOR srcX AS path[] DO`: it is the reference-variable pattern that the ACE performance guidance (ESQL code tips) recommends, and it keeps one loop shape for XMLNSC and JSON. `FOR` itself is valid ESQL and does traverse XMLNSC repeating elements (see the ESQL FOR statement), so do not report or rewrite an existing `FOR` loop as a defect.
 
 For each object in an array, create it explicitly with `CREATE LASTCHILD ... IDENTITY (JSON.Object)Item` before assigning its fields.
 
