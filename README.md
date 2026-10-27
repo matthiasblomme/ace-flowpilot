@@ -100,6 +100,7 @@ If you want to use IBM Bob across multiple ACE Toolkit workspaces, you might pre
 The repository is organized around the [`skills/`](skills) directory:
 
 - [`skills/ace-message-flow/`](skills/ace-message-flow) contains the Bob skill for generic ACE Toolkit `.msgflow` creation
+- [`skills/ace-subflow/`](skills/ace-subflow) contains the Bob skill for ACE Toolkit `.subflow` creation
 - [`skills/ace-connector-flows/`](skills/ace-connector-flows) contains the Bob skill for connector-based ACE flows
 - [`skills/ace-project-setup/`](skills/ace-project-setup) contains the Bob skill for ACE Toolkit application and policy project scaffolding
 - [`skills/ace-esql/`](skills/ace-esql) contains the Bob skill for ACE ESQL generation and refinement
@@ -110,6 +111,7 @@ The repository is organized around the [`skills/`](skills) directory:
 
 ## Active skills
 - [`ace-message-flow`](skills/ace-message-flow/SKILL.md)
+- [`ace-subflow`](skills/ace-subflow/SKILL.md)
 - [`ace-connector-flows`](skills/ace-connector-flows/SKILL.md)
 - [`ace-project-setup`](skills/ace-project-setup/SKILL.md)
 - [`ace-esql`](skills/ace-esql/SKILL.md)

@@ -3,7 +3,7 @@ name: ace-subflow
 description: Use when the user wants to create or modify IBM App Connect Enterprise Toolkit .subflow files using validated node types and ACE Toolkit conventions.
 ---
 
-# ACE Message Flow Skill
+# ACE Subflow Skill
 
 ## Purpose
 - Use this skill when the user asks to create or modify ACE Toolkit `.subflow` files that do not require connector-specific policy guidance.

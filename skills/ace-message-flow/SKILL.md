@@ -13,6 +13,7 @@ Use this skill when the user asks to create or modify ACE Toolkit `.msgflow` fil
 
 - If the request includes connector-specific nodes, use [`skills/ace-connector-flows/SKILL.md`](../ace-connector-flows/SKILL.md).
 - If the request is primarily about project scaffolding, use [`skills/ace-project-setup/SKILL.md`](../ace-project-setup/SKILL.md).
+- If the request also creates or changes `.subflow` files, use [`skills/ace-subflow/SKILL.md`](../ace-subflow/SKILL.md) for them as well.
 
 ## Required reading order
 

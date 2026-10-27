@@ -6,9 +6,11 @@ This document defines how ACE skills must be combined when a request spans multi
 ## Routing by requested artifact
 - Use [`skills/ace-project-setup/SKILL.md`](../ace-project-setup/SKILL.md) when the requested work includes Application or Policy project scaffolding.
 - Use [`skills/ace-message-flow/SKILL.md`](../ace-message-flow/SKILL.md) when the requested work includes non-connector ACE Toolkit `.msgflow` files.
+- Use [`skills/ace-subflow/SKILL.md`](../ace-subflow/SKILL.md) when the requested work includes non-connector ACE Toolkit `.subflow` files.
 - Use [`skills/ace-connector-flows/SKILL.md`](../ace-connector-flows/SKILL.md) when the requested work includes connector-specific message flow nodes.
 - Use [`skills/ace-esql/SKILL.md`](../ace-esql/SKILL.md) when the requested work includes `.esql` files, Compute node logic, or XMLNSC-to-JSON transformation logic.
 - Use [`skills/ace-java-compute/SKILL.md`](../ace-java-compute/SKILL.md) when the requested work includes JavaCompute implementation.
+- Read [`skills/shared/test-cases.md`](test-cases.md) when the requested work includes ACE unit or component tests, and [`skills/shared/test-projects.md`](test-projects.md) when the `<Application>_Test` project does not exist yet. Also read the skill for the artifact under test, so the test addresses the real node names and terminals.
 
 ## Composition rules
 - If the request includes both `.msgflow` and `.esql` work, use both the relevant message flow skill and [`skills/ace-esql/SKILL.md`](../ace-esql/SKILL.md).

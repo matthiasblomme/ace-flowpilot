@@ -9,6 +9,7 @@ This file is a compatibility entry point. The canonical task-specific skills liv
 
 ## Active skills
 - [`skills/ace-message-flow/SKILL.md`](skills/ace-message-flow/SKILL.md)
+- [`skills/ace-subflow/SKILL.md`](skills/ace-subflow/SKILL.md)
 - [`skills/ace-connector-flows/SKILL.md`](skills/ace-connector-flows/SKILL.md)
 - [`skills/ace-project-setup/SKILL.md`](skills/ace-project-setup/SKILL.md)
 - [`skills/ace-esql/SKILL.md`](skills/ace-esql/SKILL.md)
@@ -17,6 +18,7 @@ This file is a compatibility entry point. The canonical task-specific skills liv
 ## Shared guidance
 - [`skills/shared/`](skills/shared)
 - [`skills/shared/connectors/`](skills/shared/connectors)
+- [`skills/shared/test-cases.md`](skills/shared/test-cases.md) and [`skills/shared/test-projects.md`](skills/shared/test-projects.md) for ACE unit and component tests
 
 ## Maintainer note
 Do not expand this file back into a monolithic skill. Keep shared guidance under [`skills/shared/`](skills/shared) and task-specific entry points in separate skill folders.
