@@ -152,9 +152,10 @@ When you encounter a message flow node property name that you don't recognize yo
 - JMS Header node → namespace prefix of `ComIbmJMSHeader.msgnode`
 
 ## Kafka nodes
-- Kafka Consumer node → namespace prefix of `ComIbmKafkaMsgConsumer.msgnode`
-- Kafka Producer node → namespace prefix of `ComIbmKafkaMsgProducer.msgnode`
-- Kafka Read node → namespace prefix of `ComIbmKafkaMsgRead.msgnode`
+- Kafka Consumer node -> namespace prefix of `com_ibm_connector_kafka_ComIbmEventInput.msgnode`, declared as `xmlns:com_ibm_connector_kafka_ComIbmEventInput.msgnode="com/ibm/connector/kafka/ComIbmEventInput.msgnode"`, with `connectorName="Kafka"` on the node
+- Kafka Producer node -> namespace prefix of `com_ibm_connector_kafka_ComIbmOutput.msgnode`, declared as `xmlns:com_ibm_connector_kafka_ComIbmOutput.msgnode="com/ibm/connector/kafka/ComIbmOutput.msgnode"`, with `connectorName="Kafka"` on the node
+- Kafka Read node -> namespace prefix of `ComIbmKafkaMsgRead.msgnode` (ACE 13.0.3.0 or later; on earlier versions the Kafka Read node is `com_ibm_connector_kafka_ComIbmRequest.msgnode`)
+- Use `ComIbmKafkaMsgConsumer.msgnode` and `ComIbmKafkaMsgProducer.msgnode` only when the flow needs Kafka transactions (`commitMsgOffset="Transactionally"`, `transactionalId`, `transactionTimeout`). Only these types carry the transaction properties, and they exist only from ACE 13.0.3.0. The connector-family types above work on every ACE 12 and 13 level and are what the Toolkit palette creates.
 
 ## Database nodes
 - Database Input node → namespace prefix of `ComIbmDatabaseInput.msgnode`
