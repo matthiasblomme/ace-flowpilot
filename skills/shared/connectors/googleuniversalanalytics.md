@@ -17,7 +17,7 @@ Before using this document, read:
 - Google Universal Analytics Request node
 
 ## Note on deprecation
-This connector is **deprecated**. It targets the Google Universal Analytics v3 Management API and Core Reporting API. For new flows, use the Google Analytics 4 connector (`applicationConnectorType="googleanalytics4"`) documented in [`googleanalytics.md`](../googleanalytics.md).
+This connector is **deprecated**. It targets the Google Universal Analytics v3 Management API and Core Reporting API. For new flows, use the Google Analytics 4 connector (`applicationConnectorType="googleanalytics4"`) documented in [`googleanalytics.md`](googleanalytics.md).
 
 ## Required node attributes
 - `xmi:type` must use the namespace prefix of `ComIbmApplicationConnectorRequest_googleanalytics.msgnode`

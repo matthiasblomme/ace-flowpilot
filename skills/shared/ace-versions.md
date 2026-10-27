@@ -35,10 +35,14 @@ The current skill content was originally authored with ACE 13 schema paths in mi
 - For example the location within the default install location on MacOS is `/Applications/IBM App Connect Enterprise 13.0.M.F/common/schemas/Policy` where M represents the ACE Modification release number and F represents the ACE Fixpack release number such as `13.0.9.0` In general pick the latest available release, and therefore the directory with the highest available number M.
 - If you do not have access to the XSD file you should ask the user to provide it from the above location.
 
+### Connector policy schema
+- Connector policies (`policyType` set to a connector code such as `salesforce` or `servicenow`) are not defined in Policy.xsd. Their types are in PolicyConnectors.xsd, and the Toolkit's templates for them in PolicyUIConnectors.xsd.
+- Both XSD files are in the ACE installation at `<ACE Install Location>/common/schemas/Connectors`, next to the `Policy` folder above, with the same install locations per platform.
+
 ## Rules
 - Do not hard-code ACE schema locations in multiple documents when a reference to this file is sufficient.
 - When validating node `xmi:type` values, use the Message Flow schema applicable to the user's ACE version.
-- When validating policy XML content, use the Policy schema applicable to the user's ACE version.
+- When validating policy XML content, use the schema applicable to the user's ACE version that defines the policy's `policyType`: Policy.xsd for the built-in policy types, PolicyConnectors.xsd for connector policies.
 
 ## Related files
 - [`skills/shared/message-flow-rules.md`](message-flow-rules.md)

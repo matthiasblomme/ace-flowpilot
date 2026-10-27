@@ -61,7 +61,7 @@ The `policy.descriptor` file must exist in the project root and use the validate
 - If the user does not specify a policy file name, derive one from the node type and a numeric suffix.
 
 ## Validation
-- Validate policy XML structure using the Policy schema for the applicable ACE version.
+- Validate policy XML structure using the schema for the applicable ACE version that defines the policy's `policyType`: Policy.xsd for the built-in policy types, PolicyConnectors.xsd for connector policies.
 - For schema locations, refer to [`skills/shared/ace-versions.md`](ace-versions.md).
 
 ## Related files
