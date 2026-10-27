@@ -33,7 +33,7 @@ Use this skill when the user asks to create or modify `.esql` files for ACE Comp
 - Preserve valid ACE ESQL constructs unless the requested change or the shared guidance requires otherwise.
 - Do not invent compiler, parser, or unresolved identifier errors for valid ACE ESQL built-ins.
 - Treat `FIELDVALUE(...)`, `LASTMOVE(...)`, `MOVE ... NEXTSIBLING NAME '...'`, `TYPE JSON.Object`, and `CREATE FIELD ... IDENTITY (JSON.Array)` as valid ACE ESQL constructs.
-- **Never use `out`, `in`, or `inout` as variable or reference names** — they are ESQL reserved keywords (parameter direction modifiers) and cause parse errors. Use alternatives such as `outRef`, `wmsRoot`, `xmlOut`, `reqBody`, `inRef`.
+- **Never use `out`, `in`, or `inout` as variable or reference names** - they are ESQL keywords (the parameter direction modifiers). The ACE docs list IN, OUT and INOUT as non-reserved keywords and say not to use any keyword as a variable, function or procedure name, in any case, because the code becomes difficult to understand. Use alternatives such as `outRef`, `wmsRoot`, `xmlOut`, `reqBody`, `inRef`.
 - **Never initialise a `DECLARE REFERENCE TO` with a `.*[<]` last-child expression** — that syntax is only valid inside `SET`/`IF`. Instead use two statements: `DECLARE ref REFERENCE TO parent;` then `MOVE ref LASTCHILD;`.
 - Do not invent ACE JSON scalar type syntax such as `TYPE JSON.String`, `TYPE JSON.Number`, or `TYPE JSON.Boolean`.
 - Create JSON scalar values with `SET` assignments rather than by inventing typed scalar nodes.
