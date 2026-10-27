@@ -54,13 +54,13 @@ The `esqlModule` attribute is not recognised by the ACE runtime. A path-style `c
 
 ## Compute nodes — naming contract
 
-This is the most common source of flow startup failures. Three values must all match, derived from a single chosen base name:
+A mismatch between the `computeExpression` module name and the ESQL `CREATE COMPUTE MODULE` name is the most common source of flow startup failures: the node finds its module through `computeExpression` only. Derive the values below from a single chosen base name:
 
 | Artifact | Required value |
 | --- | --- |
 | Compute node `xmi:type` | `ComIbmCompute.msgnode:FCMComposite_1` |
 | Compute node `computeExpression` attribute | `esql://routine/#<BaseName>_Compute.Main` |
-| Compute node `translation string` (node label) | `<BaseName>` |
+| Compute node `translation string` (node label) | Free text, `<BaseName>` by convention. The label binds nothing at runtime; the example flow labels its node `Compute` |
 | ESQL file name | `<BaseName>_Compute.esql` |
 | ESQL `CREATE COMPUTE MODULE` name | `<BaseName>_Compute` |
 
