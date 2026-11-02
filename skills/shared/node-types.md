@@ -155,6 +155,11 @@ When you encounter a message flow node property name that you don't recognize yo
 - Kafka Consumer node → namespace prefix of `ComIbmKafkaMsgConsumer.msgnode`
 - Kafka Producer node → namespace prefix of `ComIbmKafkaMsgProducer.msgnode`
 - Kafka Read node → namespace prefix of `ComIbmKafkaMsgRead.msgnode`
+- These three node types were introduced in ACE 13.0.3.0. Use them for every message flow on ACE 13.0.3.0 or later.
+- Only when the user's ACE version is earlier than 13.0.3.0 (see [`skills/shared/ace-versions.md`](ace-versions.md)), use the earlier Kafka node types instead, with `connectorName="Kafka"` on the node:
+  - Kafka Consumer node: namespace prefix of `com_ibm_connector_kafka_ComIbmEventInput.msgnode`, declared as `xmlns:com_ibm_connector_kafka_ComIbmEventInput.msgnode="com/ibm/connector/kafka/ComIbmEventInput.msgnode"`
+  - Kafka Producer node: namespace prefix of `com_ibm_connector_kafka_ComIbmOutput.msgnode`, declared as `xmlns:com_ibm_connector_kafka_ComIbmOutput.msgnode="com/ibm/connector/kafka/ComIbmOutput.msgnode"`
+  - Kafka Read node: namespace prefix of `com_ibm_connector_kafka_ComIbmRequest.msgnode`, declared as `xmlns:com_ibm_connector_kafka_ComIbmRequest.msgnode="com/ibm/connector/kafka/ComIbmRequest.msgnode"`
 
 ## Database nodes
 - Database Input node → namespace prefix of `ComIbmDatabaseInput.msgnode`
