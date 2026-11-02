@@ -57,6 +57,7 @@ The `computeExpression` property in a Compute node must match the ESQL file stru
 - Avoid using `CARDINALITY` inside loops when the value can be determined once outside the loop.
 - Minimize expensive string manipulation where a simpler approach is available.
 - Minimize the number of statements when doing so improves clarity and efficiency.
+- If an output field is known to be mandatory, it is important not to assign NULL using a SET statement (or if you do, ensure that SET is using the VALUE clause). This can be avoided using the ESQL COALESCE function which evaluates its parameters in order and returns the first one that is not NULL. The result is NULL if, and only if, all the arguments are NULL. The parameters can be of any scalar type, but they need not all be of the same type. The COALESCE function is often used to provide a default value for a field, which might not exist in a message. When using the COALESCE function, order your arguments by likelihood and cost: Place values that are frequently non-NULL first, and if you can put expensive expressions (such as subqueries or heavy functions) later in the argument list since COALESCE short-circuits as soon as it finds a match.
 
 ## Field existence checks
 - Use `LASTMOVE` or `CARDINALITY` when checking whether a field exists.
