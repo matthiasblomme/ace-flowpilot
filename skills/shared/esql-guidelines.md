@@ -176,6 +176,48 @@ This rule applies whenever the source and target domains differ (XMLNSC→JSON, 
 - If the user provides an expected output shape, example ESQL, or reference implementation, match that structure as closely as possible.
 - For mapping tasks, prefer faithful structural mapping over a redesigned example transformation.
 
+## Message domain and the Properties folder
+
+### How the output message domain is set
+- In a Compute node, the domain of the output message is set only by the parser folder that you create or assign to under `OutputRoot`.
+- Create the folder explicitly, for example `CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';` or `CREATE LASTCHILD OF OutputRoot DOMAIN 'XMLNSC';`
+- Alternatively, assign to a field beneath the parser folder, for example `SET OutputRoot.XMLNSC.Employee.SkillLevel = 'Basic';`
+- Do not specify more than one body domain in the ESQL for a single output message.
+- Domain names appear as node properties (such as `messageDomainProperty` in a `.msgflow` or `.subflow`) and as parser folder names. They are never fields inside the `Properties` folder.
+
+### Valid fields in the Properties folder
+The `Properties` folder contains only the following fields:
+
+| Field | Data type |
+|---|---|
+| `CodedCharSetId` | INTEGER |
+| `ContentType` | CHARACTER |
+| `CreationTime` | TIMESTAMP |
+| `Encoding` | INTEGER |
+| `ExpirationTime` | TIMESTAMP |
+| `IdentityMappedIssuedBy` | CHARACTER |
+| `IdentityMappedPassword` | CHARACTER |
+| `IdentityMappedToken` | CHARACTER |
+| `IdentityMappedType` | CHARACTER |
+| `IdentitySourceIssuedBy` | CHARACTER |
+| `IdentitySourcePassword` | CHARACTER |
+| `IdentitySourceToken` | CHARACTER |
+| `IdentitySourceType` | CHARACTER |
+| `MessageFormat` | CHARACTER |
+| `MessageSet` | CHARACTER |
+| `MessageType` | CHARACTER |
+| `Persistence` | BOOLEAN |
+| `Priority` | INTEGER |
+| `ReplyIdentifier` | BLOB |
+| `ReplyProtocol` | CHARACTER |
+| `Topic` | CHARACTER (a list) |
+| `Transactional` | BOOLEAN |
+
+- **There is no `MessageDomain` field in the `Properties` folder.** Never generate `SET OutputRoot.Properties.MessageDomain = ...`. It is not valid and the ACE Toolkit reports a warning for it.
+- Do not add `SET OutputRoot.Properties.<X> = ...` unless `<X>` is in the table above.
+- When generating a new output message, only set `MessageSet`, `MessageType` and `MessageFormat` in `Properties` when the target parser needs them (for example MRM or DFDL). JSON and XMLNSC do not need them.
+- The usual way to carry the properties through a Compute node is `SET OutputRoot.Properties = InputRoot.Properties;`
+
 ## ESQL file structure
 Every `.esql` file for a Compute node must use this skeleton. The module name must match the name given to the Compute node in the `.msgflow` file. The file must be placed in the same Application project as the `.msgflow`.
 
